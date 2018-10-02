@@ -29,10 +29,31 @@
     <public_template_modifications>
         <modification template="helper_resource_mod_action_alert" modification_key="rda_delete_alert" description="Adds an extra input field for ResourceDeleteAlert" execution_order="10" enabled="1" action="str_replace">
             <find>
-                <![CDATA[</ul></dd>]]>
+                <![CDATA[
+                    </ul></dd>
+                ]]>
             </find>
             <replace>
-                <![CDATA[</ul></dd><dl class="ctrlUnit"><dt></dt><dd><ul><li><label><input type="checkbox" name="rda_alert_enabled" value="1" {xen:checked $alertDefault} class="Disabler" id="ctrl_rda_alert_enabled" /> {xen:phrase rda_notifiy_watchers} {xen:phrase reason}:</label><ul id="ctrl_rda_alert_enabled_Disabler"><li><input type="text" name="rda_alert_reason" class="textCtrl" placeholder="{xen:phrase optional}" /></li></ul></li></ul></dd></dl>]]>
+                <![CDATA[
+                    </ul></dd>
+                    <dl class="ctrlUnit">
+                        <dt></dt>
+                        <dd>
+                            <ul>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="rda_alert_enabled" value="1" {xen:checked $alertDefault} class="Disabler" id="ctrl_rda_alert_enabled" /> {xen:phrase rda_notifiy_watchers} {xen:phrase reason}:
+                                    </label>
+                                    <ul id="ctrl_rda_alert_enabled_Disabler">
+                                        <li>
+                                            <input type="text" name="rda_alert_reason" class="textCtrl" placeholder="{xen:phrase optional}" />
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </dd>
+                    </dl>
+                ]]>
             </replace>
         </modification>
     </public_template_modifications>
