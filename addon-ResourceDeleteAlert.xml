@@ -1,46 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <addon addon_id="ResourceDeleteAlert" title="Alert users of resource deletion" version_string="1.2" version_id="1" url="http://nfell2009.uk" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
-  <admin_navigation/>
-  <admin_permissions/>
-  <admin_style_properties/>
-  <admin_templates/>
-  <admin_template_modifications/>
-  <code_events/>
-  <code_event_listeners>
-    <listener event_id="load_class_controller" execute_order="10" callback_class="ResourceDeleteAlert_Proxy" callback_method="extendPublicResourceController" active="1" hint="XenResource_ControllerPublic_Resource" description=""/>
-  </code_event_listeners>
-  <cron/>
-  <email_templates/>
-  <email_template_modifications/>
-  <optiongroups/>
-  <permissions>
-    <permission_groups/>
-    <permissions/>
-    <interface_groups/>
-  </permissions>
-  <phrases>
-    <phrase title="rda_notifiy_watchers" version_id="1" version_string="1.0"><![CDATA[Notify anyone who has downloaded this resource of this action.]]></phrase>
-  </phrases>
-  <route_prefixes/>
-  <style_properties/>
-  <templates/>
-  <public_template_modifications>
-    <modification template="helper_resource_mod_action_alert" modification_key="rda_delete_alert" description="Adds an extra input field for ResourceDeleteAlert" execution_order="10" enabled="1" action="str_replace">
-      <find><![CDATA[</ul></dd>]]></find>
-      <replace><![CDATA[</ul></dd>
-<dl class="ctrlUnit">
-	<dt></dt>
-	<dd><ul>
-		<li>
-			<label><input type="checkbox" name="rda_alert_enabled" value="1" {xen:checked $alertDefault} class="Disabler" id="ctrl_rda_alert_enabled" /> {xen:phrase rda_notifiy_watchers} {xen:phrase reason}:</label>
-			<ul id="ctrl_rda_alert_enabled_Disabler">
-				<li><input type="text" name="rda_alert_reason" class="textCtrl" placeholder="{xen:phrase optional}" /></li>
-			</ul>
-		</li>
-	</ul></dd>
-</dl>]]></replace>
-    </modification>
-  </public_template_modifications>
-  <bb_code_media_sites/>
-  <bb_codes/>
+    <admin_navigation/>
+    <admin_permissions/>
+    <admin_style_properties/>
+    <admin_templates/>
+    <admin_template_modifications/>
+    <code_events/>
+    <code_event_listeners>
+        <listener event_id="load_class_controller" execute_order="10" callback_class="ResourceDeleteAlert_Proxy" callback_method="extendPublicResourceController" active="1" hint="XenResource_ControllerPublic_Resource" description=""/>
+    </code_event_listeners>
+    <cron/>
+    <email_templates/>
+    <email_template_modifications/>
+    <optiongroups/>
+    <permissions>
+        <permission_groups/>
+        <permissions/>
+        <interface_groups/>
+    </permissions>
+    <phrases>
+        <phrase title="rda_notifiy_watchers" version_id="1" version_string="1.0">
+            <![CDATA[Notify anyone who has downloaded this resource of this action.]]>
+        </phrase>
+    </phrases>
+    <route_prefixes/>
+    <style_properties/>
+    <templates/>
+    <public_template_modifications>
+        <modification template="helper_resource_mod_action_alert" modification_key="rda_delete_alert" description="Adds an extra input field for ResourceDeleteAlert" execution_order="10" enabled="1" action="str_replace">
+            <find>
+                <![CDATA[
+                    </ul></dd>
+                ]]>
+            </find>
+            <replace>
+                <![CDATA[
+                    </ul></dd>
+                    <dl class="ctrlUnit">
+                        <dt></dt>
+                        <dd>
+                            <ul>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="rda_alert_enabled" value="1" {xen:checked $alertDefault} class="Disabler" id="ctrl_rda_alert_enabled" /> {xen:phrase rda_notifiy_watchers} {xen:phrase reason}:
+                                    </label>
+                                    <ul id="ctrl_rda_alert_enabled_Disabler">
+                                        <li>
+                                            <input type="text" name="rda_alert_reason" class="textCtrl" placeholder="{xen:phrase optional}" />
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </dd>
+                    </dl>
+                ]]>
+            </replace>
+        </modification>
+    </public_template_modifications>
+    <bb_code_media_sites/>
+    <bb_codes/>
 </addon>
