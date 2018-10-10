@@ -52,7 +52,12 @@ class ResourceDeleteAlert_Extends_XenResource_ControllerPublic_Resource extends 
 
 	protected function _getDownloadUsers($resource_id) {
 		$db = XenForo_Application::getDb();
-		return $db->fetchAll("SELECT user_id FROM xf_resource_download WHERE resource_id = ?", $resource_id);
+		$users = $db->fetchAll("SELECT user_id FROM xf_resource_download WHERE resource_id = ?", $resource_id);
+		$return = [];
+		foreach($users as $user) {
+			$return[$user['user_id']] = $user;
+		}
+		return $return;
 	}
 
 		/**
